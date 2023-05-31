@@ -18,7 +18,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 # Load and display an image
 
 # Load and display an image
-image_url = "https://github.com/Camroc007/PowerHour/blob/main/images/prhr.png"
+image_url = "https://github.com/Camroc007/PowerHour/blob/main/images/prhr.png?raw=true"
 response = requests.get(image_url)
 image = Image.open(io.BytesIO(response.content))
 
