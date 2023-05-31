@@ -16,7 +16,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 
 # Load and display an image
-image_path = r"https://raw.githubusercontent.com/Camroc007/PowerHour/images/prhr.png"  # Replace with the path to your image file
+image_path = r"https://github.com/Camroc007/PowerHour/blob/main/images/prhr.png?raw=true"  # Replace with the path to your image file
 image = Image.open(image_path)
 st.image(image, caption="MINI POWER HOUR brought to you by Big Mac and Chips", use_column_width=True)
 #st.write("A shot glass should be placed in front of each player. You’ll also need at least a dozen or more beer cans handy. Other drinks, on the other hand, can also be used. \n In Power Hour, players will need to take a shot every 30 seconds. Therefore you will want to avoid stronger beverages. Players can leave at any time, and if they do not take a shot within the time limit, they will be eliminated.") 
@@ -76,8 +76,8 @@ from PIL import Image
 
 # Define the image paths and URLs
 image_paths = {
-    "Housewarming": r"https://raw.githubusercontent.com/Camroc007/PowerHour/images/Housewarming.PNG",
-    "Mad Cool 2023": r"https://raw.githubusercontent.com/Camroc007/PowerHour/images/mad_cool.PNG",
+    "Housewarming": r"https://github.com/Camroc007/PowerHour/blob/main/images/Housewarming.PNG?raw=true",
+    "Mad Cool 2023": r"https://github.com/Camroc007/PowerHour/blob/main/images/mad_cool.PNG?raw=true",
 }
 
 image_urls = {
