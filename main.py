@@ -80,8 +80,8 @@ from PIL import Image
 
 # Define the image paths and URLs
 image_paths = {
-    "Housewarming": "https://raw.githubusercontent.com/Camroc007/PowerHour/images/Housewarming.PNG",
-    "Mad Cool 2023": "https://raw.githubusercontent.com/Camroc007/PowerHour/images/mad_cool.PNG",
+    "Housewarming": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG",
+    "Mad Cool 2023": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/mad_cool.PNG",
 }
 
 image_urls = {
@@ -102,7 +102,7 @@ for i, (image_name, image_path) in enumerate(image_paths.items()):
     image = Image.open(requests.get(image_path, stream=True).raw)
     column.image(image)
 # Allow the user to enter their own playlist URI
-playlist_uri_input = st.text_input("Or Enter here your Spotify playlist URL:")
+playlist_uri_input = st.text_input("Or Enter your Spotify playlist URL:")
 if playlist_uri_input:
     playlist_uri = playlist_uri_input
     st.write(f"Entered playlist URI: {playlist_uri}")
