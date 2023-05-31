@@ -92,7 +92,7 @@ for image_name, image_url in image_urls.items():
     if column.button(image_name):
         playlist_uri = image_urls[image_name]
         st.write(f"Selected playlist URI: {playlist_uri}")
-    response = requests.get(image_url)
+    response = requests.get(image_url, stream=True)
     image = Image.open(io.BytesIO(response.content))
     column.image(image)
 
