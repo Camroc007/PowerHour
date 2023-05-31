@@ -16,8 +16,10 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 
 # Load and display an image
-image_path = r"https://github.com/Camroc007/PowerHour/blob/main/images/prhr.png?raw=true"  # Replace with the path to your image file
-image = Image.open(image_path)
+
+# Load and display an image
+image_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG"
+image = Image.open(requests.get(image_url, stream=True).raw)
 st.image(image, caption="MINI POWER HOUR brought to you by Big Mac and Chips", use_column_width=True)
 #st.write("A shot glass should be placed in front of each player. You’ll also need at least a dozen or more beer cans handy. Other drinks, on the other hand, can also be used. \n In Power Hour, players will need to take a shot every 30 seconds. Therefore you will want to avoid stronger beverages. Players can leave at any time, and if they do not take a shot within the time limit, they will be eliminated.") 
 st.markdown("<h2 style='text-align: center; font-size: 18px;'>A shot glass should be placed in front of each player. You’ll also need at least a dozen or more beer cans handy. Other drinks, on the other hand, can also be used. \n In Power Hour, players will need to take a half shot basically every 30 seconds. Therefore you will want to avoid stronger beverages. Players can leave at any time, and if they do not take a half shot by the time the song ends, they will be eliminated.</h2>", unsafe_allow_html=True)
@@ -76,8 +78,8 @@ from PIL import Image
 
 # Define the image paths and URLs
 image_paths = {
-    "Housewarming": r"https://github.com/Camroc007/PowerHour/blob/main/images/Housewarming.PNG?raw=true",
-    "Mad Cool 2023": r"https://github.com/Camroc007/PowerHour/blob/main/images/mad_cool.PNG?raw=true",
+    "Housewarming": r"https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG",
+    "Mad Cool 2023": r"https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/mad_cool.PNG",
 }
 
 image_urls = {
@@ -95,7 +97,7 @@ for i, (image_name, image_path) in enumerate(image_paths.items()):
     if column.button(image_name):
         playlist_uri = image_urls[image_name]
         st.write(f"Selected playlist URI: {playlist_uri}")
-    image = Image.open(image_path)
+    image = Image.open(requests.get(image_url, stream=True).raw)
     column.image(image)
 # Allow the user to enter their own playlist URI
 playlist_uri_input = st.text_input("Or Enter here your Spotify playlist URL:")
