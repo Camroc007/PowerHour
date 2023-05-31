@@ -18,8 +18,10 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 # Load and display an image
 
 # Load and display an image
-image_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG"
-image = Image.open(requests.get(image_url, stream=True).raw)
+image_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/prhr.PNG"
+response = requests.get(image_url)
+image = Image.open(io.BytesIO(response.content))
+
 st.image(image, caption="MINI POWER HOUR brought to you by Big Mac and Chips", use_column_width=True)
 #st.write("A shot glass should be placed in front of each player. You’ll also need at least a dozen or more beer cans handy. Other drinks, on the other hand, can also be used. \n In Power Hour, players will need to take a shot every 30 seconds. Therefore you will want to avoid stronger beverages. Players can leave at any time, and if they do not take a shot within the time limit, they will be eliminated.") 
 st.markdown("<h2 style='text-align: center; font-size: 18px;'>A shot glass should be placed in front of each player. You’ll also need at least a dozen or more beer cans handy. Other drinks, on the other hand, can also be used. \n In Power Hour, players will need to take a half shot basically every 30 seconds. Therefore you will want to avoid stronger beverages. Players can leave at any time, and if they do not take a half shot by the time the song ends, they will be eliminated.</h2>", unsafe_allow_html=True)
