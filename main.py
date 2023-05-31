@@ -18,7 +18,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 # Load and display an image
 
 # Load and display an image
-image_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/prhr.PNG"
+image_url = "https://github.com/Camroc007/PowerHour/blob/main/images/prhr.png"
 response = requests.get(image_url)
 image = Image.open(io.BytesIO(response.content))
 
@@ -80,8 +80,8 @@ from PIL import Image
 
 # Define the image URLs
 image_urls = {
-    "Housewarming": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG",
-    "Mad Cool 2023": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/mad_cool.PNG",
+    "Housewarming": "https://github.com/Camroc007/PowerHour/blob/main/images/Housewarming.PNG",
+    "Mad Cool 2023": "https://github.com/Camroc007/PowerHour/blob/main/images/mad_cool.PNG",
 }
 
 # Initialize playlist_uri variable
