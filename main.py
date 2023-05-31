@@ -76,31 +76,28 @@ def play_song(song):
 import streamlit as st
 from PIL import Image
 
-# Define the image paths and URLs
-image_paths = {
-    "Housewarming": r"https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG",
-    "Mad Cool 2023": r"https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/mad_cool.PNG",
-}
-
+# Define the image URLs
 image_urls = {
-    "Housewarming": "https://open.spotify.com/playlist/3NsbNebjUjBiQUYUWNgUge?si=52210acf15aa4590",
-    "Mad Cool 2023": "https://open.spotify.com/playlist/4WDK9vUmvKv5t1zVXRF2FK?si=499a2ab294c64b50",
+    "Housewarming": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG",
+    "Mad Cool 2023": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/mad_cool.PNG",
 }
 
 # Initialize playlist_uri variable
 playlist_uri = None
 
 # Display the clickable images in a horizontal layout
-columns = st.columns(len(image_paths))
-for i, (image_name, image_path) in enumerate(image_paths.items()):
-    column = columns[i % len(columns)]
+columns = st.columns(len(image_urls))
+for image_name, image_url in image_urls.items():
+    column = columns[image_name]
     if column.button(image_name):
         playlist_uri = image_urls[image_name]
         st.write(f"Selected playlist URI: {playlist_uri}")
-    image = Image.open(requests.get(image_url, stream=True).raw)
+    image_data = requests.get(image_url).content
+    image = Image.open(io.BytesIO(image_data))
     column.image(image)
+
 # Allow the user to enter their own playlist URI
-playlist_uri_input = st.text_input("Or Enter here your Spotify playlist URL:")
+playlist_uri_input = st.text_input("Or enter your Spotify playlist URL:")
 if playlist_uri_input:
     playlist_uri = playlist_uri_input
     st.write(f"Entered playlist URI: {playlist_uri}")
