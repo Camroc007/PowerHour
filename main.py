@@ -92,8 +92,8 @@ for image_name, image_url in image_urls.items():
     if column.button(image_name):
         playlist_uri = image_urls[image_name]
         st.write(f"Selected playlist URI: {playlist_uri}")
-    image_data = requests.get(image_url).content
-    image = Image.open(io.BytesIO(image_data))
+    response = requests.get(image_url)
+    image = Image.open(io.BytesIO(response.content))
     column.image(image)
 
 # Allow the user to enter their own playlist URI
