@@ -89,8 +89,8 @@ playlist_uri = None
 
 # Display the clickable images in a horizontal layout
 columns = st.columns(len(image_urls))
-for image_name, image_url in image_urls.items():
-    column = columns[image_name]
+for i, (image_name, image_url) in enumerate(image_urls.items()):
+    column = columns[i]
     if column.button(image_name):
         playlist_uri = image_urls[image_name]
         st.write(f"Selected playlist URI: {playlist_uri}")
