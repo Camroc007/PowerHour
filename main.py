@@ -18,7 +18,7 @@ sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 # Load and display an image
 
 # Load and display an image
-image_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/prhr.png"
+image_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/external_files/prhr.png"
 response = requests.get(image_url)
 image = Image.open(io.BytesIO(response.content))
 
@@ -56,19 +56,20 @@ def play_song(song):
         st.write(audio_html, unsafe_allow_html=True)
         time.sleep(31)
         # Play custom audio
-        custom_audio_path = r"C:\Users\cmckenna\Downloads\test.mp3"  # Replace with the path to your custom audio file
+        custom_audio_url = "https://raw.githubusercontent.com/Camroc007/PowerHour/main/external_files/test.mp3"
+        response = requests.get(custom_audio_url)
+        audio_data = response.content
 
-        with open(custom_audio_path, "rb") as f:
-            audio_data = f.read()
-            base64_audio = base64.b64encode(audio_data).decode("utf-8")
-            audio_html = f'<audio src="data:audio/mp3;base64,{base64_audio}" controls autoplay></audio>'
-            st.write(audio_html, unsafe_allow_html=True)
+        base64_audio = base64.b64encode(audio_data).decode("utf-8")
+        audio_html = f'<audio src="data:audio/mp3;base64,{base64_audio}" controls autoplay></audio>'
+        st.write(audio_html, unsafe_allow_html=True)
 
         # Display the name of the song
         st.write(f"Completed song - {song['name']} by {song['artists'][0]['name']}")
         time.sleep(3)
     else:
-        st.write(f"No preview available for this song:{song['name']} by {song['artists'][0]['name']}")
+        st.write(f"No preview available for this song: {song['name']} by {song['artists'][0]['name']}")
+
 
     # Wait for 30 seconds before transitioning to the next song
     
@@ -80,8 +81,8 @@ from PIL import Image
 
 # Define the image paths and URLs
 image_paths = {
-    "Housewarming": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/Housewarming.PNG",
-    "Mad Cool 2023": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/images/mad_cool.PNG",
+    "Housewarming": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/external_files/Housewarming.PNG",
+    "Mad Cool 2023": "https://raw.githubusercontent.com/Camroc007/PowerHour/main/external_files/mad_cool.PNG",
 }
 
 image_urls = {
