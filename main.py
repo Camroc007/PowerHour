@@ -7,8 +7,8 @@ import time
 import base64
 from PIL import Image
 # Spotify API credentials
-CLIENT_ID = '50bad18bf2d447bf83634b92d0f45629'
-CLIENT_SECRET = 'a465652d61304df68ffcdca31d9c99fb'
+CLIENT_ID = st.secrets["CLIENT_ID"]
+CLIENT_SECRET = st.secrets["CLIENT_SECRET"]
 
 # Initialize the Spotify client
 client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
